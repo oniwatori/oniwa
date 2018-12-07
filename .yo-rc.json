@@ -1,0 +1,28 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "nativeLanguage": "vi"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "oniwa",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "testFrameworks": [],
+    "jhiPrefix": "ngx",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "vi",
+    "languages": [
+      "vi"
+    ],
+    "skipServer": true,
+    "skipUserManagement": true
+  }
+}
