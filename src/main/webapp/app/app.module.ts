@@ -2,29 +2,31 @@ import './vendor.ts';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
 
-import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
-import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
-import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
-import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OniwaSharedModule } from 'app/shared';
-import { OniwaCoreModule } from 'app/core';
-import { OniwaAppRoutingModule } from './app-routing.module';
-import { OniwaHomeModule } from './home/home.module';
+import { CoreModule } from 'app/core';
+import { AppRoutingModule } from './app-routing.module';
+import { PageModule } from './pages/page.module';
 import { OniwaAccountModule } from './account/account.module';
 import { OniwaEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { NgxMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { AppComponent } from './app.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { ThemeModule } from './layouts/theme.module';
 
 @NgModule({
     imports: [
         BrowserModule,
-        OniwaAppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'ngx', separator: '-' }),
         NgJhipsterModule.forRoot({
             // set below to true to make alerts look like toast
@@ -34,38 +36,18 @@ import { NgxMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
             defaultI18nLang: 'vi'
         }),
         OniwaSharedModule.forRoot(),
-        OniwaCoreModule,
-        OniwaHomeModule,
+        ThemeModule.forRoot(),
+        CoreModule.forRoot(),
+        PageModule,
         OniwaAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         OniwaEntityModule
     ],
-    declarations: [NgxMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthInterceptor,
-            multi: true
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthExpiredInterceptor,
-            multi: true
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: ErrorHandlerInterceptor,
-            multi: true
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: NotificationInterceptor,
-            multi: true
-        }
-    ],
-    bootstrap: [NgxMainComponent]
+    declarations: [AppComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+    bootstrap: [AppComponent]
 })
-export class OniwaAppModule {
+export class AppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
         this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
     }

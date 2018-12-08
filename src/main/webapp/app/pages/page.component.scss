@@ -1,0 +1,44 @@
+@import '../layouts/styles/themes';
+
+@include nb-install-component() {
+    /*
+  * TODO: hot fix, in prod mode popover arrow has wong style.
+  * Delete this after weill be fixed https://github.com/akveo/nebular/issues/1006
+  */
+    $popover-border-width: calc(#{nb-theme(popover-arrow-size)} - 2px);
+
+    ::ng-deep nb-popover,
+    ::ng-deep nb-datepicker-container {
+        .arrow {
+            &::after {
+                border-left-width: $popover-border-width;
+                border-right-width: $popover-border-width;
+                border-bottom-width: $popover-border-width;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url('../../content/images/hipster.png') no-repeat center top;
+    background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hipster {
+        background: url('../../content/images/hipster2x.png') no-repeat center top;
+        background-size: contain;
+    }
+}

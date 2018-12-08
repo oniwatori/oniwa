@@ -20,4 +20,4 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     ],
     exports: [RouterModule]
 })
-export class OniwaAppRoutingModule {}
+export class AppRoutingModule {}

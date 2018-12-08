@@ -13,12 +13,14 @@
     <link rel="manifest" href="manifest.webapp" />
     <link rel="stylesheet" href="content/css/loading.css">
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+    <script src="app/pace.min.js"></script>
+    <link rel="stylesheet" href="content/css/pace-js/themes/green/pace-theme-flash.css">
 </head>
 <body>
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <ngx-main>
+    <ngx-app>
         <div class="app-loading">
             <div class="lds-css ng-scope">
                 <div class="lds-pacman">
@@ -68,7 +70,7 @@
                 <!-- end of troubleshooting content -->
             </div>
         </div>
-    </ngx-main>
+    </ngx-app>
     <noscript>
         <h1>You must enable javascript to view this page.</h1>
     </noscript>

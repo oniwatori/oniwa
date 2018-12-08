@@ -75,7 +75,10 @@ module.exports = (options) => ({
             { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
             { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
             // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
-            { from: './src/main/webapp/robots.txt', to: 'robots.txt' }
+            { from: './src/main/webapp/robots.txt', to: 'robots.txt' },
+            { from: './src/main/webapp/assets/', to: 'assets' },
+            { from: './node_modules/pace-js/themes', to: 'content/css/pace-js/themes' },
+            { from: './node_modules/pace-js/pace.min.js', to: 'app/pace.min.js' }
         ]),
         new MergeJsonWebpackPlugin({
             output: {
