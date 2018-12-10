@@ -4,6 +4,28 @@
         "browsehappy": "Bạn đang sử dụng một trình duyệt <strong>quá cũ</strong>. Vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt</a> của bạn để có trải nghiệm tốt nhất.",
         "menu": {
             "home": "Trang chủ",
+            "page": {
+                "dashboard": "Dashboard",
+                "features": "FEATURES",
+                "extraComponents": "Extra Components",
+                "calendar": "Calendar",
+                "stepper": "Stepper",
+                "list": "List",
+                "infiniteList": "Infinite list",
+                "formInputs": "Form Inputs",
+                "accordion": "Accordion",
+                "progressBar": "Progress bar",
+                "spinner": "Spinner",
+                "alert": "Alert",
+                "tree": "Tree",
+                "tabs": "Tabs",
+                "calendarKit": "Calendar kit",
+                "chat": "Chat",
+                "popover": "Popover",
+                "toastr": "Toastr",
+                "editors": "Editors",
+                "ckEditor": "CKEditor"
+            },
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Thực thể",

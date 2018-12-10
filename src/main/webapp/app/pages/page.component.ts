@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginModalService, Principal, Account, LoginService } from 'app/core';
+import { LoginModalService, Principal, Account, LoginService, JhiLanguageHelper } from 'app/core';
 import { Router } from '@angular/router';
 import { MENU_ITEMS } from './pages-menu';
 
@@ -17,12 +17,16 @@ export class PageComponent implements OnInit {
     menu = MENU_ITEMS;
 
     constructor(
+        private jhiLanguageHelper: JhiLanguageHelper,
         private loginService: LoginService,
         private principal: Principal,
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager,
         private router: Router
-    ) {}
+    ) {
+        this.menu = jhiLanguageHelper.updateMenu(this.menu);
+        console.log(this.menu);
+    }
 
     ngOnInit() {
         this.principal.identity().then(account => {

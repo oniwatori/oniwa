@@ -5,6 +5,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { LANGUAGES } from 'app/core/language/language.constants';
+import { NbMenuItem } from '@nebular/theme';
 
 @Injectable({ providedIn: 'root' })
 export class JhiLanguageHelper {
@@ -62,5 +63,21 @@ export class JhiLanguageHelper {
             title = this.getPageTitle(routeSnapshot.firstChild) || title;
         }
         return title;
+    }
+
+    updateMenu(menus: NbMenuItem[]): any {
+        if (menus) {
+            menus.forEach(menu => {
+                if (menu.title) {
+                    this.translateService.get(menu.title).subscribe(title => {
+                        menu.title = title;
+                    });
+                }
+                if (menu.children) {
+                    menu.children = this.updateMenu(menu.children);
+                }
+            });
+        }
+        return menus;
     }
 }

@@ -12,7 +12,10 @@ const routes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                component: DashboardComponent
+                component: DashboardComponent,
+                data: {
+                    pageTitle: 'global.menu.page.dashboard'
+                }
             },
             {
                 path: 'extra-components',

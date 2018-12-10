@@ -25,43 +25,73 @@ const routes: Routes = [
         children: [
             {
                 path: 'calendar',
-                component: CalendarComponent
+                component: CalendarComponent,
+                data: {
+                    pageTitle: 'global.menu.page.calendar'
+                }
             },
             {
                 path: 'stepper',
-                component: StepperComponent
+                component: StepperComponent,
+                data: {
+                    pageTitle: 'global.menu.page.stepper'
+                }
             },
             {
                 path: 'list',
-                component: ListComponent
+                component: ListComponent,
+                data: {
+                    pageTitle: 'global.menu.page.list'
+                }
             },
             {
                 path: 'infinite-list',
-                component: InfiniteListComponent
+                component: InfiniteListComponent,
+                data: {
+                    pageTitle: 'global.menu.page.infiniteList'
+                }
             },
             {
                 path: 'form-inputs',
-                component: NebularFormInputsComponent
+                component: NebularFormInputsComponent,
+                data: {
+                    pageTitle: 'global.menu.page.formInputs'
+                }
             },
             {
                 path: 'accordion',
-                component: AccordionComponent
+                component: AccordionComponent,
+                data: {
+                    pageTitle: 'global.menu.page.accordion'
+                }
             },
             {
                 path: 'progress-bar',
-                component: ProgressBarComponent
+                component: ProgressBarComponent,
+                data: {
+                    pageTitle: 'global.menu.page.progressBar'
+                }
             },
             {
                 path: 'spinner',
-                component: SpinnerComponent
+                component: SpinnerComponent,
+                data: {
+                    pageTitle: 'global.menu.page.spinner'
+                }
             },
             {
                 path: 'alert',
-                component: AlertComponent
+                component: AlertComponent,
+                data: {
+                    pageTitle: 'global.menu.page.alert'
+                }
             },
             {
                 path: 'tree',
-                component: TreeComponent
+                component: TreeComponent,
+                data: {
+                    pageTitle: 'global.menu.page.tree'
+                }
             },
             {
                 path: 'tabs',
@@ -80,23 +110,38 @@ const routes: Routes = [
                         path: 'tab2',
                         component: Tab2Component
                     }
-                ]
+                ],
+                data: {
+                    pageTitle: 'global.menu.page.tabs'
+                }
             },
             {
                 path: 'calendar-kit',
-                component: CalendarKitFullCalendarShowcaseComponent
+                component: CalendarKitFullCalendarShowcaseComponent,
+                data: {
+                    pageTitle: 'global.menu.page.calendarKit'
+                }
             },
             {
                 path: 'chat',
-                component: ChatComponent
+                component: ChatComponent,
+                data: {
+                    pageTitle: 'global.menu.page.chat'
+                }
             },
             {
                 path: 'popover',
-                component: PopoversComponent
+                component: PopoversComponent,
+                data: {
+                    pageTitle: 'global.menu.page.popover'
+                }
             },
             {
                 path: 'toastr',
-                component: ToastrComponent
+                component: ToastrComponent,
+                data: {
+                    pageTitle: 'global.menu.page.toastr'
+                }
             }
         ]
     }
