@@ -11,9 +11,8 @@ export class UserActive {
 
 @Injectable()
 export class UserActivityService {
-    private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
-
     data = {};
+    private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
 
     constructor(private periods: PeriodsService) {
         this.data = {

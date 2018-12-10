@@ -41,25 +41,6 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
     @Input()
     step = 0.1;
 
-    @Output()
-    power = new EventEmitter<boolean>();
-
-    @HostListener('window:mouseup', ['$event'])
-    onMouseUp(event) {
-        this.recalculateValue(event);
-        this.isMouseDown = false;
-    }
-
-    @HostListener('window:mousemove', ['$event'])
-    onMouseMove(event: MouseEvent) {
-        this.recalculateValue(event);
-    }
-
-    @HostListener('window:resize', ['$event'])
-    onResize(event) {
-        this.invalidate();
-    }
-
     off = false;
     oldValue: number;
 
@@ -85,6 +66,29 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
 
     private isMouseDown = false;
     private init = false;
+
+    @Output()
+    power = new EventEmitter<boolean>();
+
+    private static toRad(angle) {
+        return (Math.PI * angle) / 180;
+    }
+
+    @HostListener('window:mouseup', ['$event'])
+    onMouseUp(event) {
+        this.recalculateValue(event);
+        this.isMouseDown = false;
+    }
+
+    @HostListener('window:mousemove', ['$event'])
+    onMouseMove(event: MouseEvent) {
+        this.recalculateValue(event);
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.invalidate();
+    }
 
     constructor() {
         this.oldValue = this.value;
@@ -356,9 +360,5 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
 
     private toValueNumber(factor) {
         return Math.round((factor * (this.max - this.min)) / this.step) * this.step + this.min;
-    }
-
-    private static toRad(angle) {
-        return (Math.PI * angle) / 180;
     }
 }

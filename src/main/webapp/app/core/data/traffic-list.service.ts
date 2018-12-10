@@ -19,8 +19,8 @@ export class TrafficList {
 
 @Injectable()
 export class TrafficListService {
-    private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
     private data = {};
+    private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
 
     constructor(private period: PeriodsService) {
         this.data = {

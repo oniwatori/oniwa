@@ -15,6 +15,14 @@ const routes: Routes = [
                 component: DashboardComponent
             },
             {
+                path: 'extra-components',
+                loadChildren: './extra-components/extra-components.module#ExtraComponentsModule'
+            },
+            {
+                path: 'editors',
+                loadChildren: './editors/editors.module#EditorsModule'
+            },
+            {
                 path: 'miscellaneous',
                 loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule'
             },
